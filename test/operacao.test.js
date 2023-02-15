@@ -3,7 +3,7 @@ const calculadora = require("../src/operacoes")
 
 describe('teste da calculadora ', () =>{
 
-    it('Opperacao de sema', () => {
+    it('Operacao de sema', () => {
         let resultado = calculadora.sum(1,2);
 
         expect(resultado).toEqual(3)
@@ -20,6 +20,27 @@ describe('teste da calculadora ', () =>{
         resultado = () => calculadora.sum(2,"a");
 
         expect (resultado).toThrow('nao e um numero');
-    })
 
-})
+   })
+    it('Operacao de subtracao', () => {
+        let resultado = calculadora.sub(4,-2);
+
+        expect(resultado).toEqual(2)
+        resultado = calculadora.sub(6,-2);
+
+        expect(resultado).toEqual(4)
+        resultado = calculadora.sub(10,-6);
+
+        expect(resultado).toEqual(4)
+        resultado = () => calculadora.sub("a",-2);
+
+        expect (resultado).toThrow('nao e um numero')
+
+        resultado = () => calculadora.sub(-4,"a");
+
+        expect (resultado).toThrow('nao e um numero');
+    })
+    
+}) 
+
+
